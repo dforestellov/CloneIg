@@ -1,0 +1,50 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: 'Helvetica', sans-serif;
+}
+
+.navigatebar {
+	width: 50vw;
+	height: 35vh;
+	margin: 15vh auto;
+	overflow-x: scroll;
+	scroll-snap-type: x mandatory;
+
+  display: flex;
+  align-items: center;
+}
+
+.child {
+  margin-left: 3px;
+	height: 100%;
+	scroll-snap-align: start;
+	padding-left: 3px;
+    display: flex;
+    flex-direction: column;
+	align-items: center;
+	justify-content: center;
+    width: 50vh;
+ 
+}
+
+
+
+.historia
+{
+    width: 80px;
+    height: 80px;
+    border-radius:150px;
+    border:2px solid red;
+
+}
+
+.textito
+{
+    text-align:center;    color: black;
+float: left;
+
+}
