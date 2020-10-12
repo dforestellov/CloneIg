@@ -6,6 +6,10 @@
     .publicacion {
         width: 100%;
         height: auto;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        flex-direction: column;
     }
     /* cabecera */
     
@@ -61,10 +65,11 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        width: 90%;
+        align-self: center;
     }
     
     .sociales {
-        margin-left: 10px;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -75,12 +80,13 @@
     .sociales img {
         height: 24px;
         width: auto;
+        margin: 8px;
     }
     
     .guardar {
-        margin-right: 10px;
         height: 24px;
         width: auto;
+        margin: 8px;
     }
     
     .cantMG {
