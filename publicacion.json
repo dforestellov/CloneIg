@@ -1,0 +1,15 @@
+
+{"data":[
+    {
+        "usuario": "Docsito",
+        "foto_usuario": "assets/perfil.jpg",
+        "foto_publicacion": "assets/publi.jpg",
+        "descripcion": "lorem ipsum lalala",
+        "likes": "0",
+        "comentarios": [{
+            "usuario": "Feinman",
+            "comentario": "maquinaaaaaa"
+        }],
+        "guardar": "false"
+    }
+]}

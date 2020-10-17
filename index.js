@@ -2,10 +2,6 @@ const loginButton = document.querySelector("#boton")
 console.log(loginButton)
 loginButton.addEventListener('click', comprobar);
 
-function comprobar() {
-    querySelector("#inputUsuario").value;
-    console.log(valor)
-}
 
 function comprobar() {
 
@@ -23,9 +19,8 @@ function comprobar() {
         if (ajax.status === 200) {
             const respuesta = ajax.response;
             const respuestaParseada = JSON.parse(respuesta);
-            const IngresoNuevo = new Usuario;
-            IngresoNuevo.usuario = document.querySelector("#inputUsuario").value;
-            IngresoNuevo.verificarUsuario(respuestaParseada.data, IngresoNuevo.usuario);
+            const IngresoNuevo = new Usuario(document.querySelector("#inputUsuario").value);
+            IngresoNuevo.verificarUsuario(respuestaParseada.data);
 
         }
     }
@@ -39,9 +34,9 @@ function comprobar() {
         nombre(data) {
             return data.usuario
         }
-        verificarUsuario(usuario, usuarioIngresado) {
+        verificarUsuario(usuario) {
 
-            let variable = usuario.find(persona => persona.usuario == usuarioIngresado)
+            let variable = usuario.find(persona => persona.usuario == this.usuario)
             if (variable) {
 
                 location.href = "cloneIg.html";
