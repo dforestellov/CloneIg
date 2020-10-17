@@ -1,3 +1,4 @@
+const main = document.querySelector('#main');
 const publicacion = {
     'data':[
         {
@@ -18,6 +19,68 @@ const publicacion = {
 
 // nueva_publicacion();
 
+const tema = (publi)=> {
+    return `
+    <section class="publicacion" id='publicacion'>
+    <div >
+        <div class="headerPublicacion">
+        <div class="infoPerfil">
+            <img src="${publi.foto_usuario}" alt="" class="fotoPerfil">
+            <a class="nombrePerfil" href="">
+                <h2 class="nombrePerfilPubli">${publi.usuario}</h2>
+            </a>
+        </div>
+        <div class="opcionesPublicacion">
+            <img class="imgOpciones" src="assets/iconos/options.png" alt="">
+        </div>
+    </div>
+    <img src="${publi.foto_publicacion}" alt="" class="fotoPublicacion">
+    <div class="iconosPublicacion">
+        <div class="sociales">
+            <img src="assets/iconos/meGusta.png" alt="" class="meGusta">
+            <img src="assets/iconos/comentario.png" alt="" class="comentarios">
+            <img src="assets/iconos/compartir.png" alt="" class="compartir">
+        </div>
+        <img src="assets/iconos/guardar.png" alt="" class="guardar">
+    </div>
+    <div class="cantMG">
+        999 Me Gusta
+    </div>
+    <div class="descripcion">
+            <p class="contenido_descripcion">
+                <a class="perfilComentario" href="">${publi.usuario}</a> ${publi.descripcion}
+            </p>
+        </div>
+    <div class="cajaComentarios">
+        <div class="comentario">
+            <p class="contenidoComentario">
+                <a class="perfilComentario" href="">pepito</a> hola
+            </p>
+        </div>
+        <div class="comentario">
+            <p class="contenidoComentario">
+                <a class="perfilComentario" href="">pepito</a> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere, aliquam!
+            </p>
+        </div>
+        <div class="comentario">
+    
+            <p class="contenidoComentario">
+                <a class="perfilComentario" href="">pepito</a> hola
+            </p>
+        </div>
+    </div>
+    </div>
+    
+    </section>
+    `
+}
+
+const map_function = (publi)=>{
+    const elemento = document.createElement("article")
+    elemento.innerHTML=tema(publi)
+    return elemento
+    
+}
 
 const crear_publicacion=()=>  {
 
@@ -29,18 +92,23 @@ const crear_publicacion=()=>  {
 
     ajax.send();
 
-
     function ajaxCallback() {
-        console.log("hola")
         if (ajax.status === 200) {
             const respuesta = ajax.response;
             const respuestaParseada = JSON.parse(respuesta);
-            console.log(respuestaParseada);
+            const publicaciones = respuestaParseada.data;
+            const map_publicaciones = publicaciones.map(map_function);
+            map_publicaciones.forEach(element => {
+                main.appendChild(element)
+            });
         }
         
     } 
     
 }   
+
+
+
 crear_publicacion()
 // function nueva_publicacion(){
 //     const element = document.querySelector('#publicacion');
@@ -55,51 +123,51 @@ crear_publicacion()
         
 //     }
     
-const publi = `
-<section class="publicacion" id='publicacion'>
-<div >
-    <div class="headerPublicacion">
-    <div class="infoPerfil">
-        <img src="assets/perfil.jpg" alt="" class="fotoPerfil">
-        <a class="nombrePerfil" href="">
-            <h2 class="nombrePerfilPubli">${user}</h2>
-        </a>
-    </div>
-    <div class="opcionesPublicacion">
-        <img class="imgOpciones" src="assets/iconos/options.png" alt="">
-    </div>
-</div>
-<img src="assets/publi.jpg" alt="" class="fotoPublicacion">
-<div class="iconosPublicacion">
-    <div class="sociales">
-        <img src="assets/iconos/meGusta.png" alt="" class="meGusta">
-        <img src="assets/iconos/comentario.png" alt="" class="comentarios">
-        <img src="assets/iconos/compartir.png" alt="" class="compartir">
-    </div>
-    <img src="assets/iconos/guardar.png" alt="" class="guardar">
-</div>
-<div class="cantMG">
-    999 Me Gusta
-</div>
-<div class="cajaComentarios">
-    <div class="comentario">
-        <p class="contenidoComentario">
-            <a class="perfilComentario" href="">pepito</a> hola
-        </p>
-    </div>
-    <div class="comentario">
-        <p class="contenidoComentario">
-            <a class="perfilComentario" href="">pepito</a> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere, aliquam!
-        </p>
-    </div>
-    <div class="comentario">
+// const publi = `
+// <section class="publicacion" id='publicacion'>
+// <div >
+//     <div class="headerPublicacion">
+//     <div class="infoPerfil">
+//         <img src="assets/perfil.jpg" alt="" class="fotoPerfil">
+//         <a class="nombrePerfil" href="">
+//             <h2 class="nombrePerfilPubli">${user}</h2>
+//         </a>
+//     </div>
+//     <div class="opcionesPublicacion">
+//         <img class="imgOpciones" src="assets/iconos/options.png" alt="">
+//     </div>
+// </div>
+// <img src="assets/publi.jpg" alt="" class="fotoPublicacion">
+// <div class="iconosPublicacion">
+//     <div class="sociales">
+//         <img src="assets/iconos/meGusta.png" alt="" class="meGusta">
+//         <img src="assets/iconos/comentario.png" alt="" class="comentarios">
+//         <img src="assets/iconos/compartir.png" alt="" class="compartir">
+//     </div>
+//     <img src="assets/iconos/guardar.png" alt="" class="guardar">
+// </div>
+// <div class="cantMG">
+//     999 Me Gusta
+// </div>
+// <div class="cajaComentarios">
+//     <div class="comentario">
+//         <p class="contenidoComentario">
+//             <a class="perfilComentario" href="">pepito</a> hola
+//         </p>
+//     </div>
+//     <div class="comentario">
+//         <p class="contenidoComentario">
+//             <a class="perfilComentario" href="">pepito</a> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere, aliquam!
+//         </p>
+//     </div>
+//     <div class="comentario">
 
-        <p class="contenidoComentario">
-            <a class="perfilComentario" href="">pepito</a> hola
-        </p>
-    </div>
-</div>
-</div>
+//         <p class="contenidoComentario">
+//             <a class="perfilComentario" href="">pepito</a> hola
+//         </p>
+//     </div>
+// </div>
+// </div>
 
-</section>
-`
+// </section>
+// `
