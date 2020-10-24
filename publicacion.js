@@ -1,25 +1,23 @@
 const main = document.querySelector('#main');
 const publicacion = {
-    'data':[
-        {
-            'usuario': 'Docsito',
-            'foto_usuario': 'assets/perfil.jpg',
-            'foto_publicacion': 'assets/publi.jpg',
-            'descripcion': 'lorem ipsum lalala',
-            'likes': "0",
-            'comentarios': [{
-                'usuario': 'Feinman',
-                'comentario': 'maquinaaaaaa'
-            }],
-            'guardar': 'false',
-        }
-    ]
+    'data': [{
+        'usuario': 'Docsito',
+        'foto_usuario': 'assets/perfil.jpg',
+        'foto_publicacion': 'assets/publi.jpg',
+        'descripcion': 'lorem ipsum lalala',
+        'likes': "0",
+        'comentarios': [{
+            'usuario': 'Feinman',
+            'comentario': 'maquinaaaaaa'
+        }],
+        'guardar': 'false',
+    }]
 }
 
 
 // nueva_publicacion();
 
-const tema = (publi)=> {
+const tema = (publi) => {
     return `
     <section class="publicacion" id='publicacion'>
     <div >
@@ -51,10 +49,11 @@ const tema = (publi)=> {
                 <a class="perfilComentario" href="">${publi.usuario}</a> ${publi.descripcion}
             </p>
         </div>
+        // ----------------------------------------------------
     <div class="cajaComentarios">
         <div class="comentario">
             <p class="contenidoComentario">
-                <a class="perfilComentario" href="">pepito</a> hola
+                <a class="perfilComentario" href="">${publi.comentarios[0].usuario}</a> ${publi.comentarios[0].comentario}
             </p>
         </div>
         <div class="comentario">
@@ -69,20 +68,24 @@ const tema = (publi)=> {
             </p>
         </div>
     </div>
+    // -------------------------------------------
     </div>
     
     </section>
     `
 }
 
-const map_function = (publi)=>{
+
+
+const map_function = (publi) => {
     const elemento = document.createElement("article")
-    elemento.innerHTML=tema(publi)
+    elemento.innerHTML = tema(publi)
+
     return elemento
-    
+
 }
 
-const crear_publicacion=()=>  {
+const crear_publicacion = () => {
 
     const ajax = new XMLHttpRequest();
 
@@ -95,34 +98,49 @@ const crear_publicacion=()=>  {
     function ajaxCallback() {
         if (ajax.status === 200) {
             const respuesta = ajax.response;
+
             const respuestaParseada = JSON.parse(respuesta);
+            console.log(respuestaParseada)
             const publicaciones = respuestaParseada.data;
+            console.log(publicaciones)
+                // intento de agregado de comentarios
+            const map_comentarios = publicaciones.comentarios
+            console.log(map_comentarios);
+            const map_c = map_comentarios.map(map_function);
+            map_c.forEach(element => {
+                    main.appendChild(element)
+                })
+                // const map_com = map_comentarios.map(map_function);
+                // map_com.forEach(element => {
+                //         main.appendChild(element)
+                //     })
+                //     // 
             const map_publicaciones = publicaciones.map(map_function);
             map_publicaciones.forEach(element => {
                 main.appendChild(element)
-            });
+            })
         }
-        
-    } 
-    
-}   
+
+    }
+
+}
 
 
 
 crear_publicacion()
-// function nueva_publicacion(){
-//     const element = document.querySelector('#publicacion');
-//         const fragment = document.createDocumentFragment();
-//         const publicacion = document.createElement('div');
-//         publicacion.textContent = "lalalalala";
-//         const info_perfil = document.createElement('div');
-//         info_perfil.classList.add('infoPerfil');
-//         publicacion.appendChild(info_perfil);
-//         fragment.appendChild(publicacion);
-//         element.appendChild(fragment);
-        
+    // function nueva_publicacion(){
+    //     const element = document.querySelector('#publicacion');
+    //         const fragment = document.createDocumentFragment();
+    //         const publicacion = document.createElement('div');
+    //         publicacion.textContent = "lalalalala";
+    //         const info_perfil = document.createElement('div');
+    //         info_perfil.classList.add('infoPerfil');
+    //         publicacion.appendChild(info_perfil);
+    //         fragment.appendChild(publicacion);
+    //         element.appendChild(fragment);
+
 //     }
-    
+
 // const publi = `
 // <section class="publicacion" id='publicacion'>
 // <div >
