@@ -94,12 +94,8 @@ const crear_publicacion = () => {
     function ajaxCallback() {
         if (ajax.status === 200) {
             const respuesta = ajax.response;
-
             const respuestaParseada = JSON.parse(respuesta);
-            console.log(respuestaParseada)
             const publicaciones = respuestaParseada.data;
-            console.log(publicaciones)
-
             const map_publicaciones = publicaciones.map(map_function);
             map_publicaciones.forEach(element => {
                 main.appendChild(element)
