@@ -15,7 +15,7 @@ const publicacion = {
 }
 
 
-// nueva_publicacion();
+
 
 const tema = (publi) => {
     return `
@@ -49,40 +49,36 @@ const tema = (publi) => {
                 <a class="perfilComentario" href="">${publi.usuario}</a> ${publi.descripcion}
             </p>
         </div>
-        // ----------------------------------------------------
+        
     <div class="cajaComentarios">
-        <div class="comentario">
-            <p class="contenidoComentario">
-                <a class="perfilComentario" href="">${publi.comentarios[0].usuario}</a> ${publi.comentarios[0].comentario}
-            </p>
-        </div>
-        <div class="comentario">
-            <p class="contenidoComentario">
-                <a class="perfilComentario" href="">pepito</a> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere, aliquam!
-            </p>
-        </div>
-        <div class="comentario">
-    
-            <p class="contenidoComentario">
-                <a class="perfilComentario" href="">pepito</a> hola
-            </p>
-        </div>
+    ${funcion_comentadora(publi.comentarios)}
+        
     </div>
-    // -------------------------------------------
     </div>
     
     </section>
     `
 }
 
-
+const coments = (comentarios) => {
+    return `
+        <div class="comentario">
+        <p class="contenidoComentario">
+            <a class="perfilComentario" href="">${comentarios.usuario}</a> ${comentarios.comentario}
+        </p>
+    </div>
+    `
+}
+const funcion_comentadora = (comentarioParametro) => {
+    return comentarioParametro.reduce((acu, item) => {
+        return acu + coments(item)
+    }, "")
+}
 
 const map_function = (publi) => {
     const elemento = document.createElement("article")
     elemento.innerHTML = tema(publi)
-
     return elemento
-
 }
 
 const crear_publicacion = () => {
@@ -103,18 +99,7 @@ const crear_publicacion = () => {
             console.log(respuestaParseada)
             const publicaciones = respuestaParseada.data;
             console.log(publicaciones)
-                // intento de agregado de comentarios
-            const map_comentarios = publicaciones.comentarios
-            console.log(map_comentarios);
-            const map_c = map_comentarios.map(map_function);
-            map_c.forEach(element => {
-                    main.appendChild(element)
-                })
-                // const map_com = map_comentarios.map(map_function);
-                // map_com.forEach(element => {
-                //         main.appendChild(element)
-                //     })
-                //     // 
+
             const map_publicaciones = publicaciones.map(map_function);
             map_publicaciones.forEach(element => {
                 main.appendChild(element)
