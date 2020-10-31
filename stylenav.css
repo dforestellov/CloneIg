@@ -1,50 +1,64 @@
+@font-face{
+    font-family: 'Roboto';
+    src: url('https://fonts.googleapis.com/css?family=Roboto');
+}
 * {
 	box-sizing: border-box;
 }
 
 body {
 	margin: 0;
-	font-family: 'Helvetica', sans-serif;
+	font-family: 'Roboto';
 }
 
 .navigatebar {
-	width: 50vw;
-	height: 35vh;
-	margin: 15vh auto;
 	overflow-x: scroll;
 	scroll-snap-type: x mandatory;
-
-  display: flex;
-  align-items: center;
+  	display: flex;
+ 	align-items: center;
 }
 
 .child {
-  margin-left: 3px;
 	height: 100%;
 	scroll-snap-align: start;
-	padding-left: 3px;
+	padding-left: 10px;
+	padding-top: 10px;
     display: flex;
     flex-direction: column;
 	align-items: center;
 	justify-content: center;
-    width: 50vh;
- 
+	font-family: 'Roboto';
+}
+.textito{
+	margin-block-start: 0.3em;
+	margin-block-end: 0.5em;
+	font-size: 12px;
+	font-weight: 400;
+	color: #262626;
 }
 
-
-
-.historia
-{
-    width: 80px;
-    height: 80px;
-    border-radius:150px;
-    border:2px solid red;
+.border{
+	border-radius: 50%;
+	background: linear-gradient(207deg, rgba(131,58,180,1) 0%, rgba(160,51,144,1) 27%, rgba(212,59,42,1) 65%, rgba(252,176,69,1) 100%);float: left;
+	width: 63px;
+	height: 63px;	
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
 }
 
-.textito
-{
-    text-align:center;    color: black;
-float: left;
+.historia{
+    width: 59px;
+    height: 59px;
+    border-radius:50%;
+	border:2px solid transparent;
+	box-sizing: border-box;
+	background: white;
 
+}
+.linea{
+	background-color: #cbcbcb;
+	width: 100%;
+	height: 1px;
 }

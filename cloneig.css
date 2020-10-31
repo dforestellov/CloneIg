@@ -26,8 +26,17 @@ header {
 }
 
 header img {
-  height: 24px;
-  width: 24px;
+  height: 35px;
+  width: 35px;
+}
+
+header .home .homeImg {
+  height: 35px;
+  width: 103px;
+}
+
+.main {
+  width: 100%;
 }
 
 footer {
@@ -51,7 +60,7 @@ footer {
 }
 
 footer img {
-  height: 24px;
-  width: 24px;
+  height: 35px;
+  width: 35px;
 }
 /*# sourceMappingURL=cloneig.css.map */

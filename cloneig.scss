@@ -13,9 +13,19 @@ header{
     box-sizing: border-box;
     display: flex;
     img{
-        height: 24px;
-        width: 24px;
+        height: 35px;
+        width: 35px;
     }
+    .home{
+        .homeImg{
+            height: 35px;
+            width: 103px;
+        }
+    }
+   
+}
+.main{
+    width: 100%;
 }
 footer{
     display: flex;
@@ -26,7 +36,7 @@ footer{
     border: 0 solid #000000;
     box-sizing: border-box;
     img{
-        height: 24px;
-        width: 24px;
+        height: 35px;
+        width: 35px;
     }
 }

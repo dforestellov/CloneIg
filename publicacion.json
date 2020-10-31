@@ -1,34 +1,34 @@
 {
     "data": [{
-            "usuario": "Docsito",
+            "usuario": "docsito",
             "foto_usuario": "assets/fotoPerfil/perfil.jpg",
             "foto_publicacion": "assets/fotoPublicacion/publi.jpg",
-            "descripcion": "lorem ipsum lalala",
+            "descripcion": "no se ni que dia es hoy",
             "likes": "0",
             "comentarios": [{
-                    "usuario": "Feinman",
-                    "comentario": "maquinaaaaaa"
+                    "usuario": "keanu_86",
+                    "comentario": "Hi, Doc!"
                 },
                 {
-                    "usuario": "dasgfdghrtyhjr6t",
-                    "comentario": "gsdgdsfgdrg"
+                    "usuario": "piedras_rock",
+                    "comentario": "say no more"
                 }
             ],
             "guardar": "false"
         },
         {
-            "usuario": "Teto_de_la_gente",
+            "usuario": "el_teto",
             "foto_usuario": "assets/fotoPerfil/hist2.jpg",
             "foto_publicacion": "assets/fotoPublicacion/teto.jpg",
             "descripcion": "hola soy el teto",
             "likes": "0",
             "comentarios": [{
-                    "usuario": "Feinman",
-                    "comentario": "maquinaaaaaa"
+                    "usuario": "donald_gringu",
+                    "comentario": "jaja argentinu pobre"
                 },
                 {
-                    "usuario": "Ffasfasf",
-                    "comentario": "fasfafafs"
+                    "usuario": "queeni",
+                    "comentario": "Bienvenido, Teto"
                 }
             ],
             "guardar": "false"

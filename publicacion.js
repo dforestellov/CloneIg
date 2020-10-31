@@ -1,13 +1,13 @@
 const main = document.querySelector('#main');
 const publicacion = {
     'data': [{
-        'usuario': 'Docsito',
+        'usuario': 'docsito',
         'foto_usuario': 'assets/perfil.jpg',
         'foto_publicacion': 'assets/publi.jpg',
         'descripcion': 'lorem ipsum lalala',
         'likes': "0",
         'comentarios': [{
-            'usuario': 'Feinman',
+            'usuario': 'feinman',
             'comentario': 'maquinaaaaaa'
         }],
         'guardar': 'false',
@@ -42,7 +42,7 @@ const tema = (publi) => {
         <img src="assets/iconos/guardar.png" alt="" class="guardar">
     </div>
     <div class="cantMG">
-        999 Me Gusta
+        100 likes
     </div>
     <div class="descripcion">
             <p class="contenido_descripcion">
