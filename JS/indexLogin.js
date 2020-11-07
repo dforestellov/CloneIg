@@ -7,7 +7,7 @@ function comprobar() {
 
     const ajax = new XMLHttpRequest();
 
-    ajax.open('GET', 'usuarios.json');
+    ajax.open('GET', 'publicacion.json');
 
     ajax.addEventListener('load', ajaxCallback);
 
