@@ -1,7 +1,6 @@
 {
     "data": [{
             "usuario": "docsito",
-            "historia": "assets/Historias/foto.jpg",
             "foto_usuario": "assets/fotoPerfil/perfil.jpg",
             "foto_publicacion": "assets/fotoPublicacion/publi.jpg",
             "descripcion": "no se ni que dia es hoy",
@@ -20,7 +19,6 @@
         },
         {
             "usuario": "el_teto",
-            "historia": "assets/Historias/foto2.jpg",
             "foto_usuario": "assets/fotoPerfil/hist2.jpg",
             "foto_publicacion": "assets/fotoPublicacion/teto.jpg",
             "descripcion": "hola soy el teto",
@@ -40,7 +38,6 @@
         },
         {
             "usuario": "donald_gringu",
-            "historia": "assets/Historias/foto3.jpg",
             "foto_usuario": "assets/fotoPerfil/hist3.jpg",
             "foto_publicacion": "assets/fotoPublicacion/trump.jpg",
             "descripcion": "hola soy donaldo",

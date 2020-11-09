@@ -32,7 +32,7 @@ function mostrarHistoria() {
 
     const ajax = new XMLHttpRequest();
 
-    ajax.open('GET', 'publicacion.json');
+    ajax.open('GET', 'historias.json');
 
     ajax.addEventListener('load', ajaxCallback);
 
@@ -41,7 +41,6 @@ function mostrarHistoria() {
 
     function cambiarSrc(src) {
         historiaSeleccionada = document.querySelector("#historiaNueva")
-            // console.log(historiaSeleccionada)
         historiaSeleccionada.src = src
     }
 
