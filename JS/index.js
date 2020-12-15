@@ -1,26 +1,31 @@
-const funcionMostrar = (soyElNumero) => {
-  numeroDelArray = soyElNumero.path[2].dataset.identificador;
-
+const funcionMostrar = () => {
   const lugarParaPonerHistorias = document.querySelector(
     "#lugarParaPonerHistorias"
   );
+
+  const historia = document.querySelector("#historia");
+  historia.addEventListener("click", mostrarHistoria);
+
   const historiaNueva = (foto) => {
     return `
-          <div class="cosoNuevo">
-          
-          <img class="fotoHistoria" id="historiaNueva" src="${foto}" alt="">
-      </div>
-      `;
+    <div class="cosoNuevo">
+    <img class="fotoHistoria" id="historiaNueva" src="${foto}" alt="">
+</div>
+`;
   };
+
   const insertarHistoria = (historiaParaMostrar) => {
     const insertarHistoria = anadirHistoria(historiaParaMostrar);
     lugarParaPonerHistorias.appendChild(insertarHistoria);
   };
+
   const anadirHistoria = (foto) => {
     const elemento = document.createElement("history");
     elemento.innerHTML = historiaNueva(foto);
-
     return elemento;
+  };
+  const map_function = () => {
+    return;
   };
 
   function mostrarHistoria() {
@@ -35,7 +40,6 @@ const funcionMostrar = (soyElNumero) => {
     function cambiarSrc(src) {
       historiaSeleccionada = document.querySelector("#historiaNueva");
       historiaSeleccionada.src = src;
-      console.log("cambie");
     }
 
     function ajaxCallback() {
@@ -43,12 +47,10 @@ const funcionMostrar = (soyElNumero) => {
         const respuestaAjax = ajax.response;
         const respuestaParseada = JSON.parse(respuestaAjax);
         const publicaciones = respuestaParseada.data;
-        let a = numeroDelArray - 2;
+        let a = -1;
         bucleHistorias();
-        console.log(publicaciones.length);
+        setInterval(cambiarHIstoria, 1000);
 
-        let intervalo = setInterval(cambiarHistoria, 3000);
-        intervalo;
         function bucleHistorias() {
           a++;
 
@@ -57,28 +59,14 @@ const funcionMostrar = (soyElNumero) => {
           insertarHistoria(arrayFotos);
         }
 
-        function cambiarHistoria() {
-          if (publicaciones.length > a) {
-            if (pararHistoria == true) {
-              clearInterval(intervalo);
-              console.log("pareIntervalo");
-            } else {
-              a++;
-              console.log(a);
-              console.log(publicaciones.length);
+        function cambiarHIstoria() {
+          a++;
 
-              const arrayFotos = publicaciones[a].historia;
-
-              cambiarSrc(arrayFotos);
-            }
-          } else {
-            console.log("soy mayor");
-            clearInterval(intervalo);
-            cerrarHistorias();
-          }
+          const arrayFotos = publicaciones[a].historia;
+          console.log(arrayFotos);
+          cambiarSrc(arrayFotos);
         }
       }
     }
   }
-  mostrarHistoria();
 };

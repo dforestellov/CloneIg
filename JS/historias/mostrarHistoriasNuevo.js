@@ -7,7 +7,6 @@ const funcionMostrar = (soyElNumero) => {
   const historiaNueva = (foto) => {
     return `
           <div class="cosoNuevo">
-          
           <img class="fotoHistoria" id="historiaNueva" src="${foto}" alt="">
       </div>
       `;
@@ -19,7 +18,6 @@ const funcionMostrar = (soyElNumero) => {
   const anadirHistoria = (foto) => {
     const elemento = document.createElement("history");
     elemento.innerHTML = historiaNueva(foto);
-
     return elemento;
   };
 
@@ -35,7 +33,6 @@ const funcionMostrar = (soyElNumero) => {
     function cambiarSrc(src) {
       historiaSeleccionada = document.querySelector("#historiaNueva");
       historiaSeleccionada.src = src;
-      console.log("cambie");
     }
 
     function ajaxCallback() {
@@ -45,10 +42,8 @@ const funcionMostrar = (soyElNumero) => {
         const publicaciones = respuestaParseada.data;
         let a = numeroDelArray - 2;
         bucleHistorias();
-        console.log(publicaciones.length);
+        setInterval(cambiarHIstoria, 3000);
 
-        let intervalo = setInterval(cambiarHistoria, 3000);
-        intervalo;
         function bucleHistorias() {
           a++;
 
@@ -57,25 +52,12 @@ const funcionMostrar = (soyElNumero) => {
           insertarHistoria(arrayFotos);
         }
 
-        function cambiarHistoria() {
-          if (publicaciones.length > a) {
-            if (pararHistoria == true) {
-              clearInterval(intervalo);
-              console.log("pareIntervalo");
-            } else {
-              a++;
-              console.log(a);
-              console.log(publicaciones.length);
+        function cambiarHIstoria() {
+          a++;
 
-              const arrayFotos = publicaciones[a].historia;
+          const arrayFotos = publicaciones[a].historia;
 
-              cambiarSrc(arrayFotos);
-            }
-          } else {
-            console.log("soy mayor");
-            clearInterval(intervalo);
-            cerrarHistorias();
-          }
+          cambiarSrc(arrayFotos);
         }
       }
     }
